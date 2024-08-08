@@ -2,16 +2,18 @@
   "name": "quave-code-challenge",
   "private": true,
   "scripts": {
-    "start": "meteor run --exclude-archs web.browser.legacy,web.cordova",
-    "quave-eslint": "eslint .",
-    "quave-prettier": "prettier --write \"**/*.js\"",
-    "quave-check": "npm run quave-eslint && npm run quave-prettier"
+    "start": "meteor run --port 3000 --exclude-archs web.browser.legacy,web.cordova",
+    "cypress": "unset NODE_OPTIONS && cypress open",
+    "lint": "eslint .",
+    "pretjs": "prettier --write \"**/*.js\"",
+    "quality": "yarn lint && yarn pretjs"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.7",
-    "meteor-node-stubs": "^1.2.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@babel/runtime": "^7.16.3",
+    "meteor-node-stubs": "^1.1.0",
+    "prettier": "^1.18.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "meteor": {
     "mainModule": {
@@ -20,13 +22,14 @@
     }
   },
   "devDependencies": {
-    "@quave/eslint-config-quave": "^3.0.0-beta.0",
-    "@types/meteor": "^2.9.8",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "lefthook": "^1.6.18",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4"
+    "@quave/eslint-config-quave": "^1.0.7",
+    "@testing-library/cypress": "^9.0.0",
+    "autoprefixer": "^10.4.14",
+    "babel-eslint": "^8.2.2",
+    "cypress": "^12.3.0",
+    "eslint": "^4.19.1",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
   },
   "eslintConfig": {
     "extends": [
